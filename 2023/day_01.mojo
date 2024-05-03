@@ -17,7 +17,7 @@ In this example, the calibration values of these four lines are 12, 38, 15, and 
 alias DIGIT_LIST: String = '123456789'
 
 
-fn solution_puzzle_1(filename: String) raises:
+fn solution_puzzle_1(borrowed filename: String) raises:
     var result: Int = 0
     var file_content: String = String()
     # reading the file
@@ -55,7 +55,7 @@ zoneight234
 In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Adding these together produces 281.
 """
 
-fn solution_puzzle_2(filename: String) raises:
+fn solution_puzzle_2(borrowed filename: String) raises:
     var DIGIT_WORD_MAPPING = Dict[String, String]()
     # this is not supported at global level yet
     DIGIT_WORD_MAPPING['1'] = 'one'

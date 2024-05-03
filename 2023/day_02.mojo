@@ -32,7 +32,7 @@ Determine which games would have been possible if the bag had been loaded with o
 14 blue cubes. What is the sum of the IDs of those games?
 """
 
-fn solution_puzzle_1(filename: String) raises:
+fn solution_puzzle_1(borrowed filename: String) raises:
     var GAME_CONFIG = Dict[String, Int]()
     # this is not supported at global level yet
     GAME_CONFIG['red'] = 12
@@ -94,7 +94,7 @@ powers produces the sum 2286.
 For each game, find the minimum set of cubes that must have been present. What is the sum of the power of these sets?
 """
 
-fn solution_puzzle_2(filename: String) raises:
+fn solution_puzzle_2(borrowed filename: String) raises:
     var result: Int = 0
     var file_content: String = String()
 
