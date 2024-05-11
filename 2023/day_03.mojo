@@ -38,10 +38,11 @@ fn solution_puzzle_1(borrowed filename: String) raises:
         file_content = f.read()
     var lines: List[String] = file_content.strip().split('\n')
 
-    # looping through the lines in the file
     var number: String = String('')
     var number_coordinates: List[Tuple[Int, Int]] = List[Tuple[Int, Int]]()
     var is_part_number: Bool = False
+
+    # looping through the lines in the file
     for i in range(len(lines)):
         # looping through every character in the line
         for c in range(len(lines[i])):
