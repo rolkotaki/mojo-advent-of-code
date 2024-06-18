@@ -7,4 +7,5 @@ As I go on solving the exercises, there are new versions of Mojo coming out, I k
 
 My first article about Mojo from 2023: [Python vs Mojo 🔥: First look and speed ​comparison](https://rolkotech.blogspot.com/2023/06/python-vs-mojo-first-look-and-speed.html). I suspect more to come.
 
-Starting Mojo version: 24.2
+Starting Mojo version: 24.2.0
+Current Mojo version: 24.4.0

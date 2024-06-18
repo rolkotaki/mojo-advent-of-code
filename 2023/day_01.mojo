@@ -117,3 +117,5 @@ fn main() raises:
 Solution for Puzzle 1: 55130
 Solution for Puzzle 2: 54985
 """
+
+# Mojo version: 24.3.0

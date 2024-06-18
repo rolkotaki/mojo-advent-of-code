@@ -39,7 +39,7 @@ fn solution_puzzle_1(borrowed filename: String) raises:
     var lines: List[String] = file_content.strip().split('\n')
 
     var number: String = String('')
-    var number_coordinates: List[Tuple[Int, Int]] = List[Tuple[Int, Int]]()
+    var number_coordinates: List[StaticIntTuple[2]] = List[StaticIntTuple[2]]()
     var is_part_number: Bool = False
 
     # looping through the lines in the file
@@ -55,7 +55,7 @@ fn solution_puzzle_1(borrowed filename: String) raises:
                     for number_coordinate in number_coordinates:
                         for x in range(-1 if i > 0 else 0, 2 if i < len(lines)-1 else 1):
                             for y in range(-1 if c > 0 else 0, 2 if c < len(lines[i])-1 else 1):
-                                if not(x == 0 and y == 0) and (DIGIT_LIST + '.').count(lines[number_coordinate[].get[0, Int]() + x][number_coordinate[].get[1, Int]() + y]) == 0:
+                                if not(x == 0 and y == 0) and (DIGIT_LIST + '.').count(lines[number_coordinate[][0] + x][number_coordinate[][1] + y]) == 0:
                                     result += int(number)
                                     is_part_number = True
                                     break
@@ -165,3 +165,5 @@ fn main() raises:
 Solution for Puzzle 1: 539637
 Solution for Puzzle 2: 82818007
 """
+
+# Mojo version: 24.4.0
