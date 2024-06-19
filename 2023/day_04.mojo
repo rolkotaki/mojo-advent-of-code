@@ -118,7 +118,7 @@ fn solution_puzzle_2(borrowed filename: String) raises:
     var winning_cards: Int = 0
 
     # by default the number of each card is one
-    for i in range(len(lines)):
+    for _ in range(len(lines)):
         cards.append(1)
     
     # looping through the lines in the file
@@ -135,7 +135,7 @@ fn solution_puzzle_2(borrowed filename: String) raises:
                 if num[] == winning_number[]:
                     winning_cards += 1
         # applying the winned copies of the next card(s) based on the number of winning numbers
-        for x in range(cards[i]):
+        for _ in range(cards[i]):
             for card in range(i + 1, i + winning_cards + 1):
                 cards[card] += 1
     
