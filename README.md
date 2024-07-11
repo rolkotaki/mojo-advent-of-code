@@ -9,7 +9,8 @@ My first article about Mojo from 2023:<br>
 [Python vs Mojo 🔥: First look and speed ​comparison](https://rolkotech.blogspot.com/2023/06/python-vs-mojo-first-look-and-speed.html)
 
 Series of articles dedicated to comparing Mojo with Python:<br>
-[Mojo vs Python: Comparison with Examples - Part I: List, Tuple, Dict and Set](https://rolkotech.blogspot.com/2024/06/mojo-vs-python-comparison-with-examples-list-tuple-dict-set.html)
+[Mojo vs Python: Comparison with Examples - Part I: List, Tuple, Dict and Set](https://rolkotech.blogspot.com/2024/06/mojo-vs-python-comparison-with-examples-list-tuple-dict-set.html)<br>
+[Mojo vs Python: Comparison with Examples - Part II: Files and Strings](https://rolkotech.blogspot.com/2024/05/mojo-vs-python-comparison-with-examples-file-string.html)
 
 Starting Mojo version: 24.2.0
 Current Mojo version: 24.4.0
