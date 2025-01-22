@@ -38,7 +38,7 @@ fn solution_puzzle_1(borrowed filename: String) raises:
     var lines: List[String] = List[String]()
     # reading the file
     with open(filename, 'r') as f:
-        lines = f.read().strip().split('\n')
+        lines = str(f.read().strip()).split('\n')
 
     var winning_numbers: List[String] = List[String]()
     var my_numbers: List[String] = List[String]()
@@ -46,8 +46,8 @@ fn solution_puzzle_1(borrowed filename: String) raises:
 
     # looping through the lines in the file
     for line in lines:
-        winning_numbers = line[].split(':')[1].split('|')[0].strip().split(' ')
-        my_numbers = line[].split(':')[1].split('|')[1].strip().split(' ')
+        winning_numbers = str(line[].split(':')[1].split('|')[0].strip()).split(' ')
+        my_numbers = str(line[].split(':')[1].split('|')[1].strip()).split(' ')
         power = -1
         for num in my_numbers:
             if num[] == '':
@@ -111,7 +111,7 @@ fn solution_puzzle_2(borrowed filename: String) raises:
     var lines: List[String] = List[String]()
     # reading the file
     with open(filename, 'r') as f:
-        lines = f.read().strip().split('\n')
+        lines = str(f.read().strip()).split('\n')
 
     var winning_numbers: List[String] = List[String]()
     var my_numbers: List[String] = List[String]()
@@ -123,8 +123,8 @@ fn solution_puzzle_2(borrowed filename: String) raises:
     
     # looping through the lines in the file
     for i in range(len(lines)):
-        winning_numbers = lines[i].split(':')[1].split('|')[0].strip().split(' ')
-        my_numbers = lines[i].split(':')[1].split('|')[1].strip().split(' ')
+        winning_numbers = str(lines[i].split(':')[1].split('|')[0].strip()).split(' ')
+        my_numbers = str(lines[i].split(':')[1].split('|')[1].strip()).split(' ')
         winning_cards = 0
         for num in my_numbers:
             if num[] == '':
@@ -157,4 +157,4 @@ Solution for Puzzle 1: 19135
 Solution for Puzzle 2: 5704953
 """
 
-# Mojo version: 24.3.0
+# Mojo version: 24.6.0

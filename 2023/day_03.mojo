@@ -27,19 +27,22 @@ Of course, the actual engine schematic is much larger. What is the sum of all of
 schematic?
 """
 
+from collections.dict import Dict
+
+
 alias DIGIT_LIST: String = '0123456789'
 
 
-fn solution_puzzle_1(borrowed filename: String) raises:
+fn solution_puzzle_1(read filename: String) raises:
     var result: Int = 0
     var file_content: String = String('')
     # reading the file
     with open(filename, 'r') as f:
         file_content = f.read()
-    var lines: List[String] = file_content.strip().split('\n')
+    var lines: List[String] = str(file_content.strip()).split('\n')
 
     var number: String = String('')
-    var number_coordinates: List[StaticIntTuple[2]] = List[StaticIntTuple[2]]()
+    var number_coordinates: List[Tuple[Int, Int]] = List[Tuple[Int, Int]]()
     var is_part_number: Bool = False
 
     # looping through the lines in the file
@@ -65,7 +68,6 @@ fn solution_puzzle_1(borrowed filename: String) raises:
                             break 
                 number = ''
                 number_coordinates.clear()
-        
         
     print("Solution for Puzzle 1:", result)
 
@@ -96,13 +98,13 @@ it is only adjacent to one part number.) Adding up all of the gear ratios produc
 What is the sum of all of the gear ratios in your engine schematic?
 """
 
-fn solution_puzzle_2(borrowed filename: String) raises:
+fn solution_puzzle_2(read filename: String) raises:
     var result: Int = 0
     var file_content: String = String('')
     # reading the file
     with open(filename, 'r') as f:
         file_content = f.read()
-    var lines: List[String] = file_content.strip().split('\n')
+    var lines: List[String] = str(file_content.strip()).split('\n')
 
     var coordinates_of_numbers: Dict[String, Int] = Dict[String, Int]()
     var number: String = String('')
@@ -166,4 +168,4 @@ Solution for Puzzle 1: 539637
 Solution for Puzzle 2: 82818007
 """
 
-# Mojo version: 24.4.0
+# Mojo version: 24.6.0

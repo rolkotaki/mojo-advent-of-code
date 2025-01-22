@@ -105,13 +105,13 @@ So, the lowest location number in this example is 35.
 What is the lowest location number that corresponds to any of the initial seed numbers?
 """
 
-fn solution_puzzle_1(borrowed filename: String) raises:
+fn solution_puzzle_1(read filename: String) raises:
     var lines: List[String] = List[String]()
     # reading the file
     with open(filename, 'r') as f:
-        lines = f.read().strip().split('\n')
+        lines = str(f.read().strip()).split('\n')
     
-    var seeds: List[String] = lines[0].split(':')[1].strip().split(' ')
+    var seeds: List[String] = str(lines[0].split(':')[1].strip()).split(' ')
     var mapping_list: List[List[List[String]]] = List[List[List[String]]]()
     var cur_mapping_items: List[List[String]] = List[List[String]]()
     var line: Int = 3
@@ -122,7 +122,7 @@ fn solution_puzzle_1(borrowed filename: String) raises:
             mapping_list.append(cur_mapping_items)
             cur_mapping_items.clear()
             line += 2
-        cur_mapping_items.append(lines[line].strip().split(' '))
+        cur_mapping_items.append(str(lines[line].strip()).split(' '))
         line += 1
     mapping_list.append(cur_mapping_items)
 
@@ -173,16 +173,19 @@ Consider all of the initial seed numbers listed in the ranges on the first line 
 location number that corresponds to any of the initial seed numbers?
 """
 
-fn solution_puzzle_2(borrowed filename: String) raises:
+from utils.static_tuple import StaticTuple
+
+
+fn solution_puzzle_2(read filename: String) raises:
     var lines: List[String] = List[String]()
     # reading the file
     with open(filename, 'r') as f:
-        lines = f.read().strip().split('\n')
+        lines = str(f.read().strip()).split('\n')
     
-    var seed_line: List[String] = lines[0].split(':')[1].strip().split(' ')
-    var ranges: List[StaticIntTuple[3]] = List[StaticIntTuple[3]]()
+    var seed_line: List[String] = str(lines[0].split(':')[1].strip()).split(' ')
+    var ranges: List[StaticTuple[Int, 3]] = List[StaticTuple[Int, 3]]()
     for i in range(0, len(seed_line), 2):
-        ranges.append(StaticIntTuple[3](int(seed_line[i]), int(seed_line[i]) + int(seed_line[i + 1]), 1))
+        ranges.append(StaticTuple[Int, 3](int(seed_line[i]), int(seed_line[i]) + int(seed_line[i + 1]), 1))
     var mapping_list: List[List[List[String]]] = List[List[List[String]]]()
     var cur_mapping_items: List[List[String]] = List[List[String]]()
     var line: Int = 3
@@ -193,7 +196,7 @@ fn solution_puzzle_2(borrowed filename: String) raises:
             mapping_list.append(cur_mapping_items)
             cur_mapping_items.clear()
             line += 2
-        cur_mapping_items.append(lines[line].strip().split(' '))
+        cur_mapping_items.append(str(lines[line].strip()).split(' '))
         line += 1
     mapping_list.append(cur_mapping_items)
 
@@ -201,7 +204,7 @@ fn solution_puzzle_2(borrowed filename: String) raises:
     var cur_start: Int = Int()
     var cur_end: Int = Int()
     var mapping_level: Int = Int()
-    var cur_range: StaticIntTuple[3] = StaticIntTuple[3]()
+    var cur_range: StaticTuple[Int, 3] = StaticTuple[Int, 3]()
     var mapping_lines: List[List[String]] = List[List[String]]()
     var mapping_items: List[String] = List[String]()
     var next_destination_start: Int = Int()
@@ -237,16 +240,16 @@ fn solution_puzzle_2(borrowed filename: String) raises:
                 # there is no overlap, we check the next mapping
                 continue
             if cur_start < next_source_start:
-                ranges.append((cur_start, next_source_start, mapping_level))
+                ranges.append(StaticTuple[Int, 3](cur_start, next_source_start, mapping_level))
                 cur_start = next_source_start
             if next_source_end < cur_end:
-                ranges.append((next_source_end, cur_end, mapping_level))
+                ranges.append(StaticTuple[Int, 3](next_source_end, cur_end, mapping_level))
                 cur_end = next_source_end
             
-            ranges.append((cur_start + source_destination_diff, cur_end + source_destination_diff, mapping_level + 1))
+            ranges.append(StaticTuple[Int, 3](cur_start + source_destination_diff, cur_end + source_destination_diff, mapping_level + 1))
             break
         else:  # if we had to skip all mappings because there was no overlap
-            ranges.append((cur_start, cur_end, mapping_level + 1))
+            ranges.append(StaticTuple[Int, 3](cur_start, cur_end, mapping_level + 1))
 
     print("Solution for Puzzle 2:", min_location)
 
@@ -262,4 +265,4 @@ Solution for Puzzle 1: 309796150
 Solution for Puzzle 2: 50716416
 """
 
-# Mojo version: 24.4.0
+# Mojo version: 24.6.0

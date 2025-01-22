@@ -32,7 +32,10 @@ Determine which games would have been possible if the bag had been loaded with o
 14 blue cubes. What is the sum of the IDs of those games?
 """
 
-fn solution_puzzle_1(borrowed filename: String) raises:
+from collections.dict import Dict
+
+
+fn solution_puzzle_1(read filename: String) raises:
     var GAME_CONFIG = Dict[String, Int]()
     # this is not supported at global level yet
     GAME_CONFIG['red'] = 12
@@ -55,7 +58,7 @@ fn solution_puzzle_1(borrowed filename: String) raises:
         var possible: Bool = True
         # looping through every game, then every ball in every set of balls and we determine if the game is possible
         for game in range(len(games)):
-            var set_of_balls: List[String] = games[game].strip().split(', ')
+            var set_of_balls: List[String] = str(games[game].strip()).split(', ')
             for ball in range(len(set_of_balls)):
                 if int(set_of_balls[ball].split(' ')[0]) > GAME_CONFIG[set_of_balls[ball].split(' ')[1]]:
                     possible = False
@@ -94,7 +97,7 @@ powers produces the sum 2286.
 For each game, find the minimum set of cubes that must have been present. What is the sum of the power of these sets?
 """
 
-fn solution_puzzle_2(borrowed filename: String) raises:
+fn solution_puzzle_2(read filename: String) raises:
     var result: Int = 0
     var file_content: String = String()
 
@@ -115,7 +118,7 @@ fn solution_puzzle_2(borrowed filename: String) raises:
 
         # looping through every game, then every ball in every set of balls and we get the max number for each color
         for game in range(len(games)):
-            var set_of_balls: List[String] = games[game].strip().split(', ')
+            var set_of_balls: List[String] = str(games[game].strip()).split(', ')
             for ball in range(len(set_of_balls)):
                 var color: String = set_of_balls[ball].split(' ')[1]
                 var num_of_cubes: Int = int(set_of_balls[ball].split(' ')[0])
@@ -143,4 +146,4 @@ Solution for Puzzle 1: 2085
 Solution for Puzzle 2: 79315
 """
 
-# Mojo version: 24.3.0
+# Mojo version: 24.6.0

@@ -62,20 +62,20 @@ Determine the number of ways you could beat the record in each race. What do you
 together?
 """
 
-fn solution_puzzle_1(borrowed filename: String) raises:
+fn solution_puzzle_1(read filename: String) raises:
     var result: Int = 0
     var result_list: List[Int] = List[Int]()
     var lines: List[String] = List[String]()
     # reading the file
     with open(filename, 'r') as f:
-        lines = f.read().strip().split('\n')
+        lines = str(f.read().strip()).split('\n')
     
     # get times and distances into lists
     var times: List[Int] = List[Int]()
     var distances: List[Int] = List[Int]()
-    for time_ in lines[0].strip().split(':')[1].strip().split():
+    for time_ in str(str(lines[0].strip()).split(':')[1].strip()).split():
         times.append(int(time_[]))
-    for distance in lines[1].strip().split(':')[1].strip().split():
+    for distance in str(str(lines[1].strip()).split(':')[1].strip()).split():
         distances.append(int(distance[]))
 
     # for each race we count how many possibilites would be faster
@@ -114,16 +114,16 @@ milliseconds and the record distance you need to beat is 940200 millimeters. You
 How many ways can you beat the record in this one much longer race?
 """
 
-fn solution_puzzle_2(borrowed filename: String) raises:
+fn solution_puzzle_2(read filename: String) raises:
     var result: Int = 0
     var lines: List[String] = List[String]()
     # reading the file
     with open(filename, 'r') as f:
-        lines = f.read().strip().split('\n')
+        lines = str(f.read().strip()).split('\n')
     
     # get the time and distance
-    var time_: Int = int(lines[0].strip().split(':')[1].strip().replace(' ', ''))
-    var distance: Int = int(lines[1].strip().split(':')[1].strip().replace(' ', ''))
+    var time_: Int = int(str(str(lines[0].strip()).split(':')[1].strip()).replace(' ', ''))
+    var distance: Int = int(str(str(lines[1].strip()).split(':')[1].strip()).replace(' ', ''))
 
     # count how many possibilites would be faster
     for i in range(1, time_):
@@ -144,4 +144,4 @@ Solution for Puzzle 1: 32076
 Solution for Puzzle 2: 34278221
 """
 
-# Mojo version: 24.4.0
+# Mojo version: 24.6.0
